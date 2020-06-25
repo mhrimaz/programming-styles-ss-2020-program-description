@@ -63,6 +63,51 @@ The image below shows the status of the board with a generic overlay message ban
 
 ![message](colored-message.png "")
 
+### You will not get same visual result
+Since different platforms and consoles use different colors you cannot visually get the same results as described in the description.
+
+According to this Java code described in the links provided in the bottom of this description, you can use the following constants values:
+
+```
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+
+
+    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+    public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
+    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
+    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
+    public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
+    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
+    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+```
+
+To color the boat with a red background and a white foreground you should use the following (or something simmilar):
+```
+System.out.println(ANSI_RED_BACKGROUND + ANSI_WHITE + "ELEMENT" + ANSI_RESET);
+```
+
+To color the board and its tiles with a cyan background and a blue foreground you should use the following (or something simmilar):
+```
+System.out.println(ANSI_CYAN_BACKGROUND + ANSI_BLUE + "ELEMENT" + ANSI_RESET);
+```
+
+To color the message banners with a black background and a yellow foreground you should use the following (or something simmilar):
+```
+System.out.println(ANSI_BLACK_BACKGROUND + ANSI_YELLOW + "ELEMENT" + ANSI_RESET);
+```
+
+To color the fishes you should use `ANSI_WHITE ` , the background depends whether the fish is in the boat or in the sea.
+
+To color the fishermen you should use `ANSI_YELLOW ` , the background is same as the boat.
 
 
 ## The FIXED (width) Text-UI
